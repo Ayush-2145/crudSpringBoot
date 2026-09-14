@@ -1,8 +1,11 @@
 package in.ayush.crudSpringBoot.entity;
 
-
+@Entity
 public class Student {
+    @Id
     private Long id;
+
+    private int roll;
     private String name;
     private String email;
     private String subject;
@@ -10,21 +13,20 @@ public class Student {
 
     // Constructors, getters, and setters
 
-    public Student() {
-    }
-
-    public Student(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getRoll() {
+        return roll;
+    }
+
+    public void setRoll(int roll) {
+        this.roll = roll;
     }
 
     public String getName() {
@@ -46,7 +48,7 @@ public class Student {
     public void setAge(int age) {
         this.age = age;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
