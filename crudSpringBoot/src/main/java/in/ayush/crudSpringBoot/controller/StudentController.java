@@ -3,6 +3,9 @@ import in.ayush.crudSpringBoot.entity.Student;
 import in.ayush.crudSpringBoot.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
 
 
 
@@ -20,9 +23,9 @@ public class StudentController{
 
    //create Student (POST)
    @PostMapping
-   public String createStudent(@RequestBody Student student) {
+   public ResponseEntity<Student> createStudent(@RequestBody Student student) {
        Student createdStudent = studentService.createStudent(student);
-       return "Student created successfully";
+       return ResponseEntity.ok(createdStudent);
    }
 
    //read Student (GET)

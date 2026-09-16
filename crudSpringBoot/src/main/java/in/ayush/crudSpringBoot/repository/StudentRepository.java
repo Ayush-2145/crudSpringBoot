@@ -10,8 +10,14 @@ public class StudentRepository {
 
     public Student saveStudent(Student student) {
         // Implement the logic to save the student to the database
-        
-        return null; // Placeholder return statement
+        Student s1 = new Student();
+        s1.setName("Aditya");
+        s1.setAge(28);
+        s1.setEmail("aditya@gmail.com");
+        s1.setRoll(101);
+        s1.setSubject("Java");
+
+        return s1;
     }
 
     
