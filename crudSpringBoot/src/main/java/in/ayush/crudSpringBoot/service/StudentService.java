@@ -5,6 +5,7 @@ import in.ayush.crudSpringBoot.repository.StudentRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class StudentService {
 
@@ -20,7 +21,7 @@ public class StudentService {
 
     public Student createStudent(Student student) {
         // Implement the logic to create a student
-        Student studentResp = studentRepository.saveStudent(student); // Assuming you have a save method in StudentRepository
+        Student studentResp = studentRepository.save(student); // Assuming you have a save method in StudentRepository
         return studentResp; 
     }
 
