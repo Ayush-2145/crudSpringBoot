@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 
@@ -29,15 +30,32 @@ public class StudentController{
    }
 
    //read Student (GET)
+   @GetMapping("/{id}")
+   public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+       Student student = studentService.getStudent(id);
+       return ResponseEntity.ok(student);
+   }
 
-//    public List<Student> getAllStudents(){
-       
-//    }
+   //read all Students (GET)
+    @GetMapping
+    public ResponseEntity<List<Student>> getAllStudents() {
+        List<Student> students = studentService.getAllStudents();
+        return ResponseEntity.ok(students);
+    }
    
 
    //update Student (PUT)
+    @PutMapping("/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+        Student updatedStudent = studentService.updateStudent(id, student);
+        return ResponseEntity.ok(updatedStudent);
+    }
 
    //delete Student (DELETE)
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
+        return ResponseEntity.noContent().build();
+    }
 
- 
 }

@@ -26,6 +26,30 @@ public class StudentService {
         return studentResp; 
     }
 
+    public Student getStudent(Long id) {
+        // Implement the logic to get a student by ID
+        return studentRepository.findById(id).orElse(null); // Assuming you have a findById method in StudentRepository
+    }
+
+    public Student updateStudent(Long id, Student student) {
+        // Implement the logic to update a student
+        Student existingStudent = studentRepository.findById(id).orElse(null);
+        if (existingStudent != null) {
+            // Update the fields of existingStudent with values from student
+            existingStudent.setName(student.getName());
+            existingStudent.setEmail(student.getEmail());
+            existingStudent.setSubject(student.getSubject());
+            existingStudent.setAge(student.getAge());
+            return studentRepository.save(existingStudent);
+        }
+        return null;
+    }
+
+    public void deleteStudent(Long id) {
+        // Implement the logic to delete a student
+        studentRepository.deleteById(id);
+    }
+
     //3.Interact with DB to store student data(Student Repository)
 
     //4.Response back to client (Postman)

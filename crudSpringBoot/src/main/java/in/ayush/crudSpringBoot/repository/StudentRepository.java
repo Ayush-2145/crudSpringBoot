@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
     //3.Interact with DB to store student data(Student Repository)
+    
 
 
 
