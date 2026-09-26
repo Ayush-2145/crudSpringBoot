@@ -33,6 +33,11 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null); // Assuming you have a findById method in StudentRepository
     }
 
+    public List<Student> getAllStudents() {
+        // Implement the logic to get all students
+        return studentRepository.findAll(); // Assuming you have a findAll method in StudentRepository
+    }
+
     public Student updateStudent(Long id, Student student) {
         // Implement the logic to update a student
         Student existingStudent = studentRepository.findById(id).orElse(null);
